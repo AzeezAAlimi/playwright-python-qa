@@ -18,3 +18,5 @@ trace.zip
 
 # macOS
 .DS_Store
+
+.env
