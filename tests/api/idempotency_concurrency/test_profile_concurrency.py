@@ -17,14 +17,14 @@ async def test_profile_concurrent_updates(
     payload_one = {
         "userContactInformation": {
             "email": VALID_PROFILE["email"],
-            "mobileNumber": VALID_PROFILE["mobileNumber"],
+            "mobile_number": VALID_PROFILE["mobile_number"],
         }
     }
 
     payload_two = {
         "userContactInformation": {
             "email": VALID_PROFILE["email"],
-            "mobileNumber": VALID_PROFILE["mobileNumber"],
+            "mobile_number": VALID_PROFILE["mobile_number"],
         }
     }
 

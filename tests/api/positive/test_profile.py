@@ -18,7 +18,7 @@ async def test_profile(
         data={
                 "userContactInformation": {
                     "email": VALID_PROFILE["email"],
-                    "mobileNumber": VALID_PROFILE["mobileNumber"],
+                    "mobile_number": VALID_PROFILE["mobile_number"],
                 }
             },
     )
