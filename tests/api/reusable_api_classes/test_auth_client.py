@@ -4,7 +4,8 @@ from api.auth_client import AuthClient
 from conftest import auth_client
 from test_data.test_user_detail import TEST_USER
 
-
+@pytest.mark.smoke
+@pytest.mark.api
 @pytest.mark.asyncio(loop_scope="session")
 async def test_login(
         auth_client: AuthClient,

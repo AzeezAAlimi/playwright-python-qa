@@ -4,6 +4,8 @@ from test_data.test_user_detail import TEST_USER
 from config.setting import BASE_URL_STAGE
 
 
+@pytest.mark.smoke
+@pytest.mark.api
 @pytest.mark.asyncio(loop_scope="session")
 async def test_login_missing_personal_id(
         api_request_context: APIRequestContext
@@ -23,6 +25,8 @@ async def test_login_missing_personal_id(
     assert post_auth_response_body["message"] == "invalid patient data, the following required fields are null: externalId, authenticationKey"
 
 
+@pytest.mark.smoke
+@pytest.mark.api
 @pytest.mark.asyncio(loop_scope="session")
 async def test_login_missing_surname_given_name(
         api_request_context: APIRequestContext
@@ -41,6 +45,8 @@ async def test_login_missing_surname_given_name(
     assert post_auth_response_body["message"] == "invalid patient data, the following required fields are null: givenName, surname"
 
 
+@pytest.mark.smoke
+@pytest.mark.api
 @pytest.mark.asyncio(loop_scope="session")
 async def test_login_empty_payload(
         api_request_context: APIRequestContext

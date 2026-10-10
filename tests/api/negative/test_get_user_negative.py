@@ -3,6 +3,8 @@ from playwright.async_api import APIRequestContext
 from config.setting import BASE_URL_STAGE
 
 
+@pytest.mark.smoke
+@pytest.mark.api
 @pytest.mark.asyncio(loop_scope="session")
 async def test_get_user_without_token(
         api_request_context: APIRequestContext
@@ -17,6 +19,8 @@ async def test_get_user_without_token(
     assert get_user_response_body["message"] == "Unauthorized"
 
 
+@pytest.mark.smoke
+@pytest.mark.api
 @pytest.mark.asyncio(loop_scope="session")
 async def test_get_user_invalid_bearer_token(
         api_request_context: APIRequestContext

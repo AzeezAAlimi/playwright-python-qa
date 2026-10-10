@@ -3,6 +3,8 @@ import pytest
 from playwright.async_api import APIRequestContext
 
 
+@pytest.mark.smoke
+@pytest.mark.api
 @pytest.mark.asyncio(loop_scope="session")
 async def test_get_user_contract(
     api_request_context: APIRequestContext,

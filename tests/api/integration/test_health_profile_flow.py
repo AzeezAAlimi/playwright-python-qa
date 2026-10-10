@@ -5,6 +5,8 @@ from test_data.health_data_2 import HEALTH_DATA_2
 from config.setting import BASE_URL_STAGE
 
 
+@pytest.mark.smoke
+@pytest.mark.api
 @pytest.mark.asyncio(loop_scope="session")
 async def test_integration_health_data(
         api_request_context: APIRequestContext,

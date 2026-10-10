@@ -1,6 +1,8 @@
 import pytest
 from playwright.async_api import Page, Route
 
+@pytest.mark.smoke
+@pytest.mark.api
 @pytest.mark.asyncio(loop_scope="session")
 async def test_user_api_500_error(
         authenticated_page: Page

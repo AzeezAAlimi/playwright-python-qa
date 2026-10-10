@@ -3,7 +3,8 @@ import json
 from api.health_client import HealthClient
 from test_data.health_data_1 import HEALTH_DATA_1
 
-
+@pytest.mark.smoke
+@pytest.mark.api
 @pytest.mark.asyncio(loop_scope="session")
 async def test_get_user(
         health_client: HealthClient,

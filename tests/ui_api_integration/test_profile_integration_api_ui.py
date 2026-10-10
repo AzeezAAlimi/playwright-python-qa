@@ -6,6 +6,8 @@ from pages.home_page import HomePage
 from pages.my_profile_page import MyProfilePage
 from config.setting import BASE_URL_STAGE
 
+@pytest.mark.smoke
+@pytest.mark.profile
 @pytest.mark.asyncio(loop_scope="session")
 async def test_profile_update_via_api_visible_in_ui(
         authenticated_page: Page,

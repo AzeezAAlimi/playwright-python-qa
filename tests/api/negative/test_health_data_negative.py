@@ -4,6 +4,8 @@ from playwright.async_api import APIRequestContext
 from config.setting import BASE_URL_STAGE
 
 
+@pytest.mark.smoke
+@pytest.mark.api
 @pytest.mark.asyncio(loop_scope="session")
 async def test_health_data_empty_payload(
         api_request_context: APIRequestContext,

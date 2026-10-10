@@ -5,6 +5,8 @@ from conftest import api_request_context, auth_token
 from test_data.profile_data import VALID_PROFILE
 
 
+@pytest.mark.smoke
+@pytest.mark.api
 @pytest.mark.asyncio(loop_scope="session")
 async def test_profile_concurrent_updates(
     api_request_context: APIRequestContext,

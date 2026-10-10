@@ -5,6 +5,8 @@ from tests.api.contract_schema_validation.schemas.user_schema import USER_SCHEMA
 from playwright.async_api import APIRequestContext
 
 
+@pytest.mark.smoke
+@pytest.mark.api
 @pytest.mark.asyncio(loop_scope="session")
 async def test_get_user_contract(
     api_request_context: APIRequestContext,

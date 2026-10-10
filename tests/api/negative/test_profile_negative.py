@@ -5,6 +5,8 @@ from test_data.profile_data_incorrect_number import INVALID_NUMBER_PROFILE
 from config.setting import BASE_URL_STAGE
 
 
+@pytest.mark.smoke
+@pytest.mark.api
 @pytest.mark.asyncio(loop_scope="session")
 async def test_profile_empty_payload(
         api_request_context: APIRequestContext,
@@ -23,6 +25,8 @@ async def test_profile_empty_payload(
     assert put_profile_response_body["message"] == "unknown error"
 
 
+@pytest.mark.smoke
+@pytest.mark.api
 @pytest.mark.asyncio(loop_scope="session")
 async def test_profile_incorrect_email_format(
             api_request_context: APIRequestContext,
@@ -50,6 +54,8 @@ async def test_profile_incorrect_email_format(
     assert put_profile_response_body["violations"][0]["message"] == "must be a well-formed email address"
 
 
+@pytest.mark.smoke
+@pytest.mark.api
 @pytest.mark.asyncio(loop_scope="session")
 async def test_profile_incorrect_phone_number_format(
             api_request_context: APIRequestContext,

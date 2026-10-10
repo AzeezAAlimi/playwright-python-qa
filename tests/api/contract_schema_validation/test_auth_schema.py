@@ -7,6 +7,8 @@ from test_data.test_user_detail import TEST_USER
 from config.setting import BASE_URL_STAGE
 
 
+@pytest.mark.smoke
+@pytest.mark.api
 @pytest.mark.asyncio(loop_scope="session")
 async def test_login(
         api_request_context: APIRequestContext

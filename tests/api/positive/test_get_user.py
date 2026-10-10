@@ -3,7 +3,8 @@ import json
 from playwright.async_api import APIRequestContext
 from config.setting import BASE_URL_STAGE
 
-
+@pytest.mark.smoke
+@pytest.mark.api
 @pytest.mark.asyncio(loop_scope="session")
 async def test_get_user(
         api_request_context: APIRequestContext,
