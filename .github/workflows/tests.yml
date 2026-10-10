@@ -30,8 +30,11 @@ jobs:
       - name: Install Playwright browsers
         run: playwright install --with-deps
 
+      - name: Create reports directory
+        run: mkdir -p reports
+
       - name: Run API tests
         run: python -m pytest tests/api -s
 
       - name: Run UI tests
-        run: python -m pytest tests/ui
+        run: python -m pytest tests/ui --junitxml=reports/ui-results.xml
