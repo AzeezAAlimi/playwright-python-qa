@@ -4,6 +4,7 @@ from playwright.async_api import APIRequestContext
 from test_data.test_user_detail import TEST_USER
 from config.setting import BASE_URL_STAGE
 
+@pytest.mark.regression
 @pytest.mark.smoke
 @pytest.mark.api
 @pytest.mark.asyncio(loop_scope="session")

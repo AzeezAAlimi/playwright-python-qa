@@ -7,6 +7,7 @@ from pages.home_page import HomePage
 from pages.login_page import LoginPage
 
 
+@pytest.mark.regression
 @pytest.mark.smoke
 @pytest.mark.auth
 @pytest.mark.asyncio(loop_scope="session")
@@ -26,6 +27,7 @@ async def test_login_with_valid_user_id(page: Page):
     await expect(home_page.nav_bar.home_navigation_button).to_be_visible()
 
 
+@pytest.mark.regression
 @pytest.mark.smoke
 @pytest.mark.auth
 @pytest.mark.asyncio(loop_scope="session")
@@ -44,6 +46,7 @@ async def test_login_with_invalid_user_id(page: Page):
     await expect(login_page.invalid_personal_number_alert).to_have_text("Felaktigt personnummer")
 
 
+@pytest.mark.regression
 @pytest.mark.smoke
 @pytest.mark.auth
 @pytest.mark.asyncio(loop_scope="session")

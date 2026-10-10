@@ -39,3 +39,39 @@ jobs:
         with:
           name: api-test-artifacts
           path: reports/
+
+  ui-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Install Playwright browsers
+        run: playwright install --with-deps
+
+      - name: Create reports directory
+        run: mkdir -p reports
+
+      - name: Run UI tests
+        run: python -m pytest tests/ui --junitxml=reports/ui-results.xml
+
+      - name: Upload UI artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ui-test-artifacts
+          path: |
+            reports/
+            screenshots/
+            traces/

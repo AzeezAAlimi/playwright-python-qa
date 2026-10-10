@@ -5,6 +5,7 @@ from pages.home_page import HomePage
 from pages.my_task_page import MyTaskPage
 
 
+@pytest.mark.regression
 @pytest.mark.smoke
 @pytest.mark.tasks
 @pytest.mark.asyncio(loop_scope="session")
@@ -25,6 +26,7 @@ async def test_active_tab(authenticated_page: Page):
     await expect(my_task_page.active_text).to_be_visible()
 
 
+@pytest.mark.regression
 @pytest.mark.smoke
 @pytest.mark.tasks
 @pytest.mark.asyncio(loop_scope="session")
@@ -46,7 +48,7 @@ async def test_completed_tab(authenticated_page: Page):
     await expect(page).to_have_url(f"{BASE_URL_STAGE}/history/finished")
 
 
-
+@pytest.mark.regression
 @pytest.mark.skip
 @pytest.mark.smoke
 @pytest.mark.tasks
@@ -75,6 +77,7 @@ async def test_cases_tab_dev(authenticated_page: Page):
     await expect(page).to_have_url(f"{BASE_URL_STAGE}/history/active")
 
 
+@pytest.mark.regression
 @pytest.mark.skip
 @pytest.mark.smoke
 @pytest.mark.tasks

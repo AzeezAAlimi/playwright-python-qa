@@ -7,6 +7,7 @@ from pages.home_page import HomePage
 from pages.my_profile_page import MyProfilePage
 
 
+@pytest.mark.regression
 @pytest.mark.smoke
 @pytest.mark.profile
 @pytest.mark.asyncio(loop_scope="session")
@@ -28,6 +29,7 @@ async def test_my_profile_logout(authenticated_page: Page):
     await expect(page).to_have_url(f"{BASE_URL_STAGE}/home")
 
 
+@pytest.mark.regression
 @pytest.mark.smoke
 @pytest.mark.profile
 @pytest.mark.asyncio(loop_scope="session")
@@ -51,6 +53,7 @@ async def test_my_care_plan_menu(authenticated_page: Page):
     await expect(page).to_have_url(f"{BASE_URL_STAGE}/home")
 
 
+@pytest.mark.regression
 @pytest.mark.smoke
 @pytest.mark.profile
 @pytest.mark.asyncio(loop_scope="session")
@@ -74,6 +77,7 @@ async def test_health_data_menu(authenticated_page: Page):
     await expect(page).to_have_url(f"{BASE_URL_STAGE}/aboutyou")
 
 
+@pytest.mark.regression
 @pytest.mark.smoke
 @pytest.mark.profile
 @pytest.mark.asyncio(loop_scope="session")
@@ -113,6 +117,7 @@ async def test_vaccinations_menu(authenticated_page: Page):
     await expect(page).to_have_url(f"{BASE_URL_STAGE}/aboutyou")
 
 
+@pytest.mark.regression
 @pytest.mark.smoke
 @pytest.mark.profile
 @pytest.mark.asyncio(loop_scope="session")
@@ -135,6 +140,7 @@ async def test_edit_contact_details_menu(authenticated_page: Page):
     await expect(page).to_have_url(f"{BASE_URL_STAGE}/aboutyou")
 
 
+@pytest.mark.regression
 @pytest.mark.skip
 @pytest.mark.smoke
 @pytest.mark.profile

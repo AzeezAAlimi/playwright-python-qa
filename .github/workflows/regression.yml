@@ -1,0 +1,71 @@
+name: Regression Tests
+
+env:
+  BASE_URL_STAGE: https://doktor24.app.staging.platform24.se
+  BASE_URL_DEV: https://doktor24.app.dev.platform24.se
+  TEST_USER_PERSONAL_ID: ${{ secrets.TEST_USER_PERSONAL_ID }}
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 2 * * *"
+
+jobs:
+  api-regression:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Create reports directory
+        run: mkdir -p reports
+
+      - name: Run API regression tests
+        run: python -m pytest tests/api -m regression --junitxml=reports/api-regression.xml
+
+  ui-regression:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Install Playwright browsers
+        run: playwright install --with-deps
+
+      - name: Create reports directory
+        run: mkdir -p reports
+
+      - name: Run UI regression tests
+        run: python -m pytest tests/ui -m regression --junitxml=reports/ui-regression.xml
+
+      - name: Upload UI regression artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ui-regression-artifacts
+          path: |
+            reports/
+            screenshots/
+            traces/
