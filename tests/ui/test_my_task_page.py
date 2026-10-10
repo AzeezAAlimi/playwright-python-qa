@@ -17,6 +17,9 @@ async def test_active_tab(authenticated_page: Page):
     await page.goto(f"{BASE_URL_STAGE}/home")
     await home_page.nav_bar.go_to_cases()
     await expect(page).to_have_url(f"{BASE_URL_STAGE}/history/active")
+    await page.get_by_test_id("timezone-notification").get_by_role(
+    "button",
+    name="Stäng").click()
     await expect(my_task_page.active_tab).to_be_visible()
     await my_task_page.open_active_tab()
     await expect(my_task_page.active_text).to_be_visible()
@@ -34,6 +37,9 @@ async def test_completed_tab(authenticated_page: Page):
     await page.goto(f"{BASE_URL_STAGE}/home")
     await home_page.nav_bar.go_to_cases()
     await expect(page).to_have_url(f"{BASE_URL_STAGE}/history/active")
+    await page.get_by_test_id("timezone-notification").get_by_role(
+    "button",
+    name="Stäng").click()
     await expect(my_task_page.completed_tab).to_be_visible()
     await my_task_page.open_completed_tab()
     await expect(my_task_page.completed_text).to_be_visible()
@@ -54,6 +60,9 @@ async def test_cases_tab_dev(authenticated_page: Page):
     await page.goto(f"{BASE_URL_STAGE}/home")
     await home_page.nav_bar.go_to_cases()
     await expect(page).to_have_url(f"{BASE_URL_STAGE}/history/active")
+    await page.get_by_test_id("timezone-notification").get_by_role(
+    "button",
+    name="Stäng").click()
     await expect(my_task_page.case_tab).to_be_visible()
     await my_task_page.case_tab.click()
     await expect(my_task_page.no_pending_case_text).to_be_visible()
@@ -79,6 +88,9 @@ async def test_messages_tab_dev(authenticated_page: Page):
     await page.goto(f"{BASE_URL_STAGE}/home")
     await home_page.nav_bar.go_to_cases()
     await expect(page).to_have_url(f"{BASE_URL_STAGE}/history/active")
+    await page.get_by_test_id("timezone-notification").get_by_role(
+    "button",
+    name="Stäng").click()
     await expect(my_task_page.message_tab).to_be_visible()
     await my_task_page.message_tab.click()
     await expect(page).to_have_url(f"{BASE_URL_STAGE}/history/messages")
@@ -87,3 +99,5 @@ async def test_messages_tab_dev(authenticated_page: Page):
 # python -m pytest -m smoke
 # python -m pytest -m tasks
 # python -m pytest -m "smoke and tasks"
+
+#data-testid="timezone-notification"

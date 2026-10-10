@@ -62,7 +62,9 @@ async def authenticated_page(
 ):
 
     context = await browser.new_context(
-        storage_state=auth_state
+        storage_state=auth_state,
+        timezone_id="UTC"
+
     )
 
     await context.tracing.start(
