@@ -32,3 +32,6 @@ jobs:
 
       - name: Run API tests
         run: python -m pytest tests/api -s
+
+      - name: Run UI tests
+        run: python -m pytest tests/ui
