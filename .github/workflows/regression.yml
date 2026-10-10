@@ -34,6 +34,13 @@ jobs:
       - name: Run API regression tests
         run: python -m pytest tests/api -m regression --junitxml=reports/api-regression.xml
 
+      - name: Upload API regression artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-regression-artifacts
+          path: reports/
+
   ui-regression:
     runs-on: ubuntu-latest
 
