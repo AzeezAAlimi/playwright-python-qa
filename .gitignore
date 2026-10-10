@@ -1,0 +1,20 @@
+# Playwright auth state
+auth/storage_state.json
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+.venv/
+
+# PyCharm
+.idea/
+
+# Test artifacts
+screenshots/
+traces/
+trace.zip
+
+# macOS
+.DS_Store

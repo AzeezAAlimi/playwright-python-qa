@@ -1,0 +1,45 @@
+USER_SCHEMA = {
+    "type": "object",
+    "required": [
+        "username",
+        "givenName",
+        "surname",
+        "mobileNumber",
+        "email",
+        "preferredLanguage",
+        "patient",
+    ],
+    "properties": {
+        "username": {"type": "string"},
+        "givenName": {"type": "string"},
+        "surname": {"type": "string"},
+        "mobileNumber": {"type": "string"},
+        "email": {"type": "string"},
+        "preferredLanguage": {"type": "string"},
+        "patient": {
+            "type": "object",
+            "required": [
+                "id",
+                "age",
+                "birthDate",
+                "gender",
+                "givenName",
+                "surname",
+                "userRelation",
+                "personExternalId",
+                "secrecy",
+            ],
+            "properties": {
+                "id": {"type": "string"},
+                "age": {"type": "integer"},
+                "birthDate": {"type": "string"},
+                "gender": {"type": "string"},
+                "givenName": {"type": "string"},
+                "surname": {"type": "string"},
+                "userRelation": {"type": "string"},
+                "personExternalId": {"type": "string"},
+                "secrecy": {"type": "string"},
+            },
+        }
+    },
+}
