@@ -12,6 +12,7 @@ from api.auth_client import AuthClient
 from test_data.test_user_detail import TEST_USER
 from test_data.profile_data import VALID_PROFILE
 from config.setting import BASE_URL_STAGE
+from pathlib import Path
 
 
 @pytest.hookimpl(hookwrapper=True)
@@ -41,6 +42,8 @@ async def auth_state(browser: Browser):
     await login_page.login_with_personal_number(VALID_PERSONAL_NUMBER_STAGE)
 
     await page.wait_for_url(f"{BASE_URL_STAGE}/home")
+
+    Path("auth").mkdir(exist_ok=True)
 
     await page.context.storage_state(
         path="auth/storage_state.json"
