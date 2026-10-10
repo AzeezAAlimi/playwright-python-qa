@@ -38,3 +38,13 @@ jobs:
 
       - name: Run UI tests
         run: python -m pytest tests/ui --junitxml=reports/ui-results.xml
+
+      - name: Upload test artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qa-test-artifacts
+          path: |
+            reports/
+            screenshots/
+            traces/
