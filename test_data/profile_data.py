@@ -1,4 +1,4 @@
 VALID_PROFILE = {
     "email": "renandstimpy@gmail.com",
-    "mobileNumber": "+46739376571",
+    "mobile_number": "+46739376571",
 }

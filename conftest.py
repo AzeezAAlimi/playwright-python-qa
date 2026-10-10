@@ -150,3 +150,19 @@ async def auth_client(
     api_request_context: APIRequestContext
 ):
     return AuthClient(api_request_context)
+
+
+@pytest_asyncio.fixture(scope="session", loop_scope="session")
+async def patient_id(
+    api_request_context: APIRequestContext,
+    auth_token: str
+):
+    response = await api_request_context.get(
+        "/api/directory2/v1/users/me",
+        headers={
+            "Authorization": f"Bearer {auth_token}"
+        },
+    )
+    assert response.status == 200
+    body = await response.json()
+    return body["patient"]["id"]
