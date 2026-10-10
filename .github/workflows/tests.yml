@@ -29,3 +29,6 @@ jobs:
 
       - name: Install Playwright browsers
         run: playwright install --with-deps
+
+      - name: Run API tests
+        run: python -m pytest tests/api -s
