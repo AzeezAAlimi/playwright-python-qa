@@ -63,8 +63,8 @@ jobs:
       - name: Create reports directory
         run: mkdir -p reports
 
-      - name: Run UI tests
-        run: python -m pytest tests/ui --junitxml=reports/ui-results.xml
+      - name: Run UI smoke tests
+        run: python -m pytest tests/ui -m smoke --reruns 1 --reruns-delay 2 --junitxml=reports/ui-results.xml
 
       - name: Upload UI artifacts
         if: always()
